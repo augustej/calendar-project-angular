@@ -1,0 +1,6 @@
+<div *ngFor="let curentWeek of fakeArray; index as i">
+  {{ i + 1 }}
+  <p *ngFor="let day of monthDays | slice : 7 * i : 7 * (i + 1)">
+    {{ day }}
+  </p>
+</div>
