@@ -11,6 +11,28 @@ export class CalendarDisplayComponent {
   monthDays?: string[] = [];
   numberOfWeeks?: number = 0;
   fakeArray?: number[] = [];
+  currentMonth: number = 0;
+  currentYear: number = 0;
+
+  monthChanged(eventData: { moveTo: string }) {
+    let nextorprev = eventData.moveTo;
+    if (nextorprev === 'prev') {
+      if (this.dateService.month === 0) {
+        this.dateService.year = this.dateService.year - 1;
+        this.dateService.month = 11;
+      } else {
+        this.dateService.month -= 1;
+      }
+    } else {
+      if (this.dateService.month === 11) {
+        this.dateService.year = this.dateService.year + 1;
+        this.dateService.month = 0;
+      } else {
+        this.dateService.month += 1;
+      }
+    }
+    this.rebuildCalendar();
+  }
 
   dayClicked(day: string): void {
     let [newYear, newMonth, newDay] = day.split('-');
@@ -36,5 +58,7 @@ export class CalendarDisplayComponent {
     this.monthDays = this.dateService.getArrayOfDaysToDisplay();
     this.numberOfWeeks = this.monthDays.length / 7;
     this.fakeArray = Array(this.numberOfWeeks).fill(0);
+    this.currentMonth = this.dateService.month;
+    this.currentYear = this.dateService.year;
   }
 }

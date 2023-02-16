@@ -1,0 +1,8 @@
+<button (click)="changeMonthBtnClicked('prev')"><</button>
+<button (click)="changeMonthBtnClicked('next')">></button>
+
+<app-month-year-display
+  [month]="month"
+  [year]="year"
+  class="month-year-container"
+></app-month-year-display>

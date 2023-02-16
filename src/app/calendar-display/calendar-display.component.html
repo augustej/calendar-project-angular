@@ -1,3 +1,9 @@
+<app-calendar-control
+  [month]="currentMonth"
+  [year]="currentYear"
+  class="calendar-control--container"
+  (monthChanged)="monthChanged($event)"
+></app-calendar-control>
 <div *ngFor="let curentWeek of fakeArray; index as i" class="week--container">
   <app-day
     *ngFor="let day of monthDays | slice : 7 * i : 7 * (i + 1)"
