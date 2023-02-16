@@ -3,6 +3,7 @@
   [year]="currentYear"
   class="calendar-control--container"
   (monthChanged)="monthChanged($event)"
+  (showToday)="setTodaysDate()"
 ></app-calendar-control>
 <div *ngFor="let curentWeek of fakeArray; index as i" class="week--container">
   <app-day
@@ -13,3 +14,7 @@
   >
   </app-day>
 </div>
+<app-add-note-btn
+  [activeDay]="activeDay"
+  [calendarType]="calendarType"
+></app-add-note-btn>

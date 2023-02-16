@@ -7,6 +7,11 @@ import { CalendarDisplayComponent } from './calendar-display/calendar-display.co
 import { DayComponent } from './day/day.component';
 import { MonthYearDisplayComponent } from './month-year-display/month-year-display.component';
 import { CalendarControlComponent } from './calendar-control/calendar-control.component';
+import { EventsCalendarComponent } from './events-calendar/events-calendar.component';
+import { SportCalendarComponent } from './sport-calendar/sport-calendar.component';
+import { FoodCalendarComponent } from './food-calendar/food-calendar.component';
+import { AddNoteBtnComponent } from './add-note-btn/add-note-btn.component';
+import { NoteModalComponent } from './note-modal/note-modal.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +19,12 @@ import { CalendarControlComponent } from './calendar-control/calendar-control.co
     CalendarDisplayComponent,
     DayComponent,
     MonthYearDisplayComponent,
-    CalendarControlComponent
+    CalendarControlComponent,
+    EventsCalendarComponent,
+    SportCalendarComponent,
+    FoodCalendarComponent,
+    AddNoteBtnComponent,
+    NoteModalComponent
   ],
   imports: [
     BrowserModule,

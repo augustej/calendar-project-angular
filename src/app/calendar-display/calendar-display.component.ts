@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { DateService } from '../date.service';
 
@@ -13,6 +14,12 @@ export class CalendarDisplayComponent {
   fakeArray?: number[] = [];
   currentMonth: number = 0;
   currentYear: number = 0;
+  calendarType: string = '';
+
+  setTodaysDate() {
+    this.dateService.setToday();
+    this.rebuildCalendar();
+  }
 
   monthChanged(eventData: { moveTo: string }) {
     let nextorprev = eventData.moveTo;
@@ -47,14 +54,16 @@ export class CalendarDisplayComponent {
     this.activeDay = this.dateService.buildFormatedId();
   }
 
-  constructor(private dateService: DateService) {}
+  constructor(private dateService: DateService, private location: Location) {}
 
   ngOnInit() {
-    this.activeDay = this.dateService.buildFormatedId();
     this.rebuildCalendar();
   }
 
   rebuildCalendar(): void {
+    let arrayOfSplitedHref = window.location.href.split('/');
+    this.calendarType = arrayOfSplitedHref[arrayOfSplitedHref.length - 1];
+    this.activeDay = this.dateService.buildFormatedId();
     this.monthDays = this.dateService.getArrayOfDaysToDisplay();
     this.numberOfWeeks = this.monthDays.length / 7;
     this.fakeArray = Array(this.numberOfWeeks).fill(0);

@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
@@ -14,5 +13,10 @@ export class CalendarControlComponent {
     this.monthChanged.emit({ moveTo });
   }
 
+  jumpToToday() {
+    this.showToday.emit();
+  }
+
   @Output() monthChanged = new EventEmitter<{ moveTo: string }>();
+  @Output() showToday = new EventEmitter();
 }
