@@ -6,5 +6,19 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./day.component.scss'],
 })
 export class DayComponent {
-  @Input() day?: string;
+  dayNr: string = '';
+  longDay: string = '';
+
+  get dayNrGetter(): string {
+    return this.dayNr;
+  }
+  get longDayGetter(): string {
+    return this.longDay;
+  }
+
+  @Input()
+  set day(value: string) {
+    this.longDay = value;
+    this.dayNr = value.split('-')[2];
+  }
 }

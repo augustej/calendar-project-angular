@@ -1,6 +1,9 @@
-<div *ngFor="let curentWeek of fakeArray; index as i">
-  {{ i + 1 }}
-  <p *ngFor="let day of monthDays | slice : 7 * i : 7 * (i + 1)">
-    {{ day }}
-  </p>
+<div *ngFor="let curentWeek of fakeArray; index as i" class="week--container">
+  <app-day
+    *ngFor="let day of monthDays | slice : 7 * i : 7 * (i + 1)"
+    [day]="day"
+    [ngClass]="{ 'active-day': day === activeDay }"
+    (click)="dayClicked(day)"
+  >
+  </app-day>
 </div>
