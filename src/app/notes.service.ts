@@ -14,8 +14,7 @@ export class NotesService {
     switch (method) {
       case 'CREATE':
         let noteId: string = this.createNoteId();
-        const newNoteDict = new Map();
-        newNoteDict.set(noteId, body);
+        const newNoteDict = { [noteId]: body };
 
         if (!currentNotesArray) {
           let newArray = [];
@@ -23,8 +22,8 @@ export class NotesService {
           localStorage.setItem(dayId, JSON.stringify(newArray));
           break;
         }
-        console.log(currentNotesArray, 'currentNotesArray');
         currentNotesArray.push(newNoteDict);
+        currentNotesArray.forEach((member: any) => {});
         localStorage.setItem(dayId, JSON.stringify(currentNotesArray));
         break;
       case 'READ':

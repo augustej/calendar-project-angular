@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, HostListener } from '@angular/core';
 import { NotesService } from '../notes.service';
 
 @Component({
@@ -31,9 +31,14 @@ export class DayComponent {
     this.dayId = `${type}-${this.longDay}`;
   }
 
+  refreshThisDay() {
+    console.log('refresh', this.dayId);
+  }
+
   ngOnInit() {
+    console.log('day init');
     this.notes = this.notesService.DataService('READ', this.dayId, '', '');
-    this.notesService.DataService('CREATE', this.dayId, 'BLA', '');
+    // this.notesService.DataService('CREATE', this.dayId, 'BLA', '');
   }
 
   constructor(public notesService: NotesService) {}
