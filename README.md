@@ -1,27 +1,37 @@
-# Calendar
+# Calendar Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
+### The challenge
 
-## Development server
+Users should be able to:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- View the optimal layout for the interface depending on their device's screen size (mobile vs desktop)
+- Add and delete notes for each day
+- See 3 different calendars: Events, Sport, Food (different notes)
+- Jump to today
 
-## Code scaffolding
+### Screenshot
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## My work (1440px)
 
-## Build
+![](./images/Screenshot1.jpg)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## My work (375px)
 
-## Running unit tests
+![](./images/Screenshot2.jpg)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Links
 
-## Running end-to-end tests
+- Live Site URL: [(http://ajanickaite.lt/calendar-project-angular/)]
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## My process
 
-## Further help
+### Built with
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Angular
+- CSS custom properties
+- Flexbox
+- no external libraries
+
+### What I learned
+
+- My first experience with Angular.
