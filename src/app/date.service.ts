@@ -75,7 +75,6 @@ export class DateService {
       )}-${i + 1}`;
       daysArrayToRepresent.push(newDay);
     }
-    console.log(daysArrayToRepresent, 'daysArrayToRepresent');
     return daysArrayToRepresent;
   }
 }

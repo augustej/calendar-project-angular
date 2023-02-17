@@ -69,6 +69,7 @@ export class CalendarDisplayComponent {
   }
 
   rebuildCalendar(): void {
+    localStorage.removeItem('current-month-day');
     let arrayOfSplitedHref = window.location.href.split('/');
     this.calendarType = arrayOfSplitedHref[arrayOfSplitedHref.length - 1];
     this.activeDay = this.dateService.buildFormatedId();
