@@ -13,6 +13,7 @@ import { SportCalendarComponent } from './sport-calendar/sport-calendar.componen
 import { FoodCalendarComponent } from './food-calendar/food-calendar.component';
 import { AddNoteBtnComponent } from './add-note-btn/add-note-btn.component';
 import { NoteModalComponent } from './note-modal/note-modal.component';
+import { TodaysNotesComponent } from './todays-notes/todays-notes.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NoteModalComponent } from './note-modal/note-modal.component';
     FoodCalendarComponent,
     AddNoteBtnComponent,
     NoteModalComponent,
+    TodaysNotesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

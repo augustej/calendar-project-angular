@@ -28,6 +28,7 @@ export class NotesService {
         break;
       case 'READ':
         response = currentNotesArray;
+        console.log(response, 'resp');
         break;
 
       case 'DELETE':
@@ -47,13 +48,14 @@ export class NotesService {
   }
 
   createNoteId(): string {
-    let noteId: number = Number(localStorage.getItem('noteId'));
-    if (!noteId) {
+    let noteId = localStorage.getItem('noteId');
+    if (noteId === null) {
       localStorage.setItem('noteId', '0');
-      noteId = 0;
+      noteId = '0';
     } else {
-      localStorage.setItem('noteId', (noteId + 1).toString());
+      noteId = (Number(noteId) + 1).toString();
+      localStorage.setItem('noteId', noteId);
     }
-    return noteId.toString();
+    return noteId;
   }
 }

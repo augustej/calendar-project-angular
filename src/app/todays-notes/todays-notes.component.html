@@ -1,0 +1,9 @@
+<p>todays-notes works!</p>
+<ng-container *ngFor="let notesDict of notes">
+  <ng-container *ngFor="let note of notesDict | keyvalue">
+    <p>{{ note.value }}</p>
+    <button type="button" id="{{ note.key }}" (click)="deleteNote(note.key)">
+      DELETE
+    </button>
+  </ng-container>
+</ng-container>

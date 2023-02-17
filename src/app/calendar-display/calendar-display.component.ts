@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, AfterViewChecked } from '@angular/core';
 import { DateService } from '../date.service';
 
 @Component({
@@ -15,6 +15,8 @@ export class CalendarDisplayComponent {
   currentMonth: number = 0;
   currentYear: number = 0;
   calendarType: string = '';
+  refreshDay: boolean = false;
+  test: number = 1;
 
   setTodaysDate() {
     this.dateService.setToday();
@@ -73,9 +75,6 @@ export class CalendarDisplayComponent {
 
   @HostListener('RefreshTodaysNotes', ['$event'])
   onCustomEventCaptured(event: any) {
-    console.log('atejo');
-    // kaip atnaujinti dienos notes?? TODO
-
-    this.rebuildCalendar();
+    this.refreshDay = !this.refreshDay;
   }
 }
