@@ -1,7 +1,0 @@
-<button type="button" (click)="showNoteModal()">Add new note</button>
-<app-note-modal
-  *ngIf="showModal === true"
-  (closeModal)="modalClosed()"
-  [activeDay]="activeDay"
-  [calendarType]="calendarType"
-></app-note-modal>
