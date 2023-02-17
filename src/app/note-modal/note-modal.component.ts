@@ -18,9 +18,21 @@ export class NoteModalComponent {
   id: string = '';
   message: string = '';
 
+  @Output() closeModal = new EventEmitter();
+
+  constructor(
+    public notesService: NotesService,
+    private elementRef: ElementRef
+  ) {}
+
+  ngOnInit() {
+    this.id = `${this.calendarType}-${this.activeDay}`;
+  }
+
   closeModalClicked(): void {
     this.closeModal.emit();
   }
+
   saveNewNote() {
     this.notesService.DataService('CREATE', this.id, this.message, '');
     this.closeModal.emit();
@@ -28,17 +40,6 @@ export class NoteModalComponent {
     const event: CustomEvent = new CustomEvent('RefreshTodaysNotes', {
       bubbles: true,
     });
-
     this.elementRef.nativeElement.dispatchEvent(event);
-  }
-
-  constructor(
-    public notesService: NotesService,
-    private elementRef: ElementRef
-  ) {}
-
-  @Output() closeModal = new EventEmitter();
-  ngOnInit() {
-    this.id = `${this.calendarType}-${this.activeDay}`;
   }
 }

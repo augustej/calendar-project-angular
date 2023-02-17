@@ -1,4 +1,13 @@
-<p class="day-nr">{{ dayNr }}</p>
+<p
+  *ngIf="showMonth !== ''"
+  class="month-name"
+  [class.current-month-day]="currentMonth === true"
+>
+  {{ showMonth }}
+</p>
+<p class="day-nr" [class.current-month-day]="currentMonth === true">
+  {{ dayNr }}
+</p>
 <ng-container *ngFor="let noteDictValue of notes">
   <p
     *ngFor="let note of noteDictValue | keyvalue"

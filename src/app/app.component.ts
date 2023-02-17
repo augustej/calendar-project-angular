@@ -12,6 +12,5 @@ export class AppComponent {
   ngOnInit() {
     let pathElementsArray = window.location.href.split('/');
     this.href = pathElementsArray[pathElementsArray.length - 1];
-    console.log(this.href);
   }
 }

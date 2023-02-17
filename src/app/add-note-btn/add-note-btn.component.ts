@@ -15,6 +15,5 @@ export class AddNoteBtnComponent {
   }
   showNoteModal() {
     this.showModal = true;
-    console.log('show');
   }
 }

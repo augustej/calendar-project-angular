@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, HostListener, AfterViewChecked } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { DateService } from '../date.service';
 
 @Component({
@@ -11,12 +11,24 @@ export class CalendarDisplayComponent {
   activeDay?: string = '';
   monthDays?: string[] = [];
   numberOfWeeks?: number = 0;
-  fakeArray?: number[] = [];
+  arrayForNrOfWeeks?: number[] = [];
   currentMonth: number = 0;
   currentYear: number = 0;
   calendarType: string = '';
   refreshDay: boolean = false;
-  test: number = 1;
+
+  constructor(private dateService: DateService, private location: Location) {}
+
+  ngOnInit() {
+    // clean local storage before highlighting days of current month
+    localStorage.removeItem('current-month-day');
+    this.rebuildCalendar();
+  }
+
+  @HostListener('RefreshTodaysNotes', ['$event'])
+  onCustomEventCaptured(event: any) {
+    this.refreshDay = !this.refreshDay;
+  }
 
   setTodaysDate() {
     this.dateService.setToday();
@@ -56,30 +68,18 @@ export class CalendarDisplayComponent {
     this.activeDay = this.dateService.buildFormatedId();
   }
 
-  constructor(private dateService: DateService, private location: Location) {}
-
-  ngOnInit() {
-    this.rebuildCalendar();
-  }
-
   rebuildCalendar(): void {
     let arrayOfSplitedHref = window.location.href.split('/');
     this.calendarType = arrayOfSplitedHref[arrayOfSplitedHref.length - 1];
     this.activeDay = this.dateService.buildFormatedId();
     this.monthDays = this.dateService.getArrayOfDaysToDisplay();
     this.numberOfWeeks = this.monthDays.length / 7;
-    this.fakeArray = Array(this.numberOfWeeks).fill(0);
+    this.arrayForNrOfWeeks = Array(this.numberOfWeeks).fill(0);
     this.currentMonth = this.dateService.month;
     this.currentYear = this.dateService.year;
   }
 
-  @HostListener('RefreshTodaysNotes', ['$event'])
-  onCustomEventCaptured(event: any) {
-    this.refreshDay = !this.refreshDay;
-  }
-
   noteWasDeleted() {
-    console.log('atejo');
     this.refreshDay = !this.refreshDay;
   }
 }

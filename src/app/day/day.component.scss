@@ -1,0 +1,35 @@
+$blue: rgb(29, 114, 232);
+$green: rgb(13, 116, 63);
+$textGray: rgb(88, 99, 109);
+
+.note {
+  flex-basis: 90%;
+  padding: 0.2rem;
+  margin: 0.1rem 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  background-color: $green;
+  color: white;
+  font-size: 0.7rem;
+
+  & button {
+    display: none;
+  }
+}
+.day-nr {
+  color: $textGray;
+  height: 28px;
+  width: 28px;
+  text-align: center;
+  padding: 0.35rem;
+  border-radius: 20px;
+}
+
+.current-month-day {
+  font-weight: 600;
+}
+
+.month-name {
+  padding: 0.35rem;
+}
