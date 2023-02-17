@@ -28,7 +28,6 @@ export class NotesService {
         break;
       case 'READ':
         response = currentNotesArray;
-        console.log(response, 'resp');
         break;
 
       case 'DELETE':

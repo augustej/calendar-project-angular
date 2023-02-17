@@ -45,6 +45,7 @@ export class DayComponent {
   }
 
   ngOnInit() {
+    // localStorage.removeItem(this.dayId);
     this.notes = this.notesService.DataService('READ', this.dayId, '', '');
     // this.notesService.DataService('CREATE', this.dayId, 'BLA', '');
   }

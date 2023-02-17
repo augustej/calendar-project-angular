@@ -22,4 +22,6 @@
 <app-todays-notes
   [activeDay]="activeDay"
   [calendarType]="calendarType"
+  [refreshDay]="refreshDay"
+  (noteDeleted)="noteWasDeleted()"
 ></app-todays-notes>

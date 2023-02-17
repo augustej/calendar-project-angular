@@ -1,4 +1,10 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { NotesService } from '../notes.service';
 
 @Component({
@@ -9,13 +15,17 @@ import { NotesService } from '../notes.service';
 export class TodaysNotesComponent {
   @Input() activeDay?: string = '';
   @Input() calendarType?: string = '';
+  @Input() refreshDay?: boolean;
   notes?: any;
-  dayId?: string = '';
+  dayId: string = '';
+  @Output() noteDeleted = new EventEmitter();
 
   constructor(public notesService: NotesService) {}
 
   deleteNote(noteId: any) {
-    console.log('delete', noteId);
+    this.notesService.DataService('DELETE', this.dayId, '', noteId);
+    this.notes = this.notesService.DataService('READ', this.dayId, '', '');
+    this.noteDeleted.emit();
   }
 
   ngOnChanges(changes: SimpleChanges) {

@@ -77,4 +77,9 @@ export class CalendarDisplayComponent {
   onCustomEventCaptured(event: any) {
     this.refreshDay = !this.refreshDay;
   }
+
+  noteWasDeleted() {
+    console.log('atejo');
+    this.refreshDay = !this.refreshDay;
+  }
 }
