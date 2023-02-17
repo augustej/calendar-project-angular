@@ -18,11 +18,8 @@ $borderStyle: 1px solid $lghGray;
   font-family: "Inter", sans-serif;
 }
 
-.calendar-control--container,
 .calendar-display,
-.todays-notes,
-.weekday-names,
-.add-note-btn-outer-div {
+.weekday-names {
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -63,6 +60,7 @@ nav ul {
 }
 
 .calendar-control--container {
+  margin-right: auto;
   padding: 0.5rem 1rem;
   display: flex;
   justify-content: flex-start;
@@ -160,11 +158,13 @@ nav ul {
   }
 }
 
-.add-note-btn-outer-div > * {
+.add-note-btn-outer-div {
   margin: 1rem;
+  margin-right: auto;
 }
 
 .todays-notes {
+  margin-right: auto;
   padding: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
@@ -172,6 +172,9 @@ nav ul {
   & button {
     padding: 0.2rem 0.5rem;
     margin-right: 1rem;
+  }
+  & .note {
+    display: flex;
   }
 }
 

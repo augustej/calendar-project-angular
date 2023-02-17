@@ -14,6 +14,7 @@ import { FoodCalendarComponent } from './food-calendar/food-calendar.component';
 import { AddNoteBtnComponent } from './add-note-btn/add-note-btn.component';
 import { NoteModalComponent } from './note-modal/note-modal.component';
 import { TodaysNotesComponent } from './todays-notes/todays-notes.component';
+import { WeekdayNamesComponent } from './weekday-names/weekday-names.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { TodaysNotesComponent } from './todays-notes/todays-notes.component';
     AddNoteBtnComponent,
     NoteModalComponent,
     TodaysNotesComponent,
+    WeekdayNamesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

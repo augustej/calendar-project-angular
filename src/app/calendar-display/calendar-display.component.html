@@ -5,6 +5,7 @@
   (monthChanged)="monthChanged($event)"
   (showToday)="setTodaysDate()"
 ></app-calendar-control>
+<app-weekday-names class="weekday-names"></app-weekday-names>
 <div *ngFor="let curentWeek of fakeArray; index as i" class="week--container">
   <app-day
     *ngFor="let day of monthDays | slice : 7 * i : 7 * (i + 1)"
@@ -16,10 +17,12 @@
   </app-day>
 </div>
 <app-add-note-btn
+  class="add-note-btn-outer-div"
   [activeDay]="activeDay"
   [calendarType]="calendarType"
 ></app-add-note-btn>
 <app-todays-notes
+  class="todays-notes"
   [activeDay]="activeDay"
   [calendarType]="calendarType"
   [refreshDay]="refreshDay"
